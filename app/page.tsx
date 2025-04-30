@@ -30,54 +30,71 @@ export default function Home() {
     };
 
     return (
-        <main style={{
-            fontFamily: 'Segoe UI, sans-serif',
-            textAlign: 'center',
-            marginTop: '4rem',
-            maxWidth: '600px',
-            marginInline: 'auto',
-            padding: '2rem',
-            borderRadius: '12px',
-            background: '#f9f9f9',
-            boxShadow: '0 0 12px rgba(0, 0, 0, 0.1)',
+        <div style={{
+            minHeight: '100vh',
+            backgroundColor: '#0d1117',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '2rem'
         }}>
-            <h1>Simple GitHub OAuth App</h1>
+            <main style={{
+                backgroundColor: '#ffffff10',
+                color: '#ffffff',
+                padding: '2.5rem',
+                borderRadius: '1rem',
+                maxWidth: '480px',
+                width: '100%',
+                textAlign: 'center',
+                boxShadow: '0 0 20px rgba(0, 0, 0, 0.3)',
+                backdropFilter: 'blur(8px)'
+            }}>
+                <h1 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', fontWeight: 'bold' }}>
+                    Simple GitHub OAuth App
+                </h1>
 
-            {user ? (
-                <div>
-                    <p>Welcome, <strong>{user.name || user.login}</strong>!</p>
-                    <img
-                        src={user.avatar_url}
-                        alt="Avatar"
-                        width={100}
-                        height={100}
-                        style={{ borderRadius: '50%', marginBottom: '1rem' }}
-                    />
-                    <p><strong>Username:</strong> {user.login}</p>
-                    <p>
-                        <strong>GitHub:</strong>{' '}
-                        <a href={user.html_url} target="_blank" rel="noopener noreferrer">
-                            {user.html_url}
-                        </a>
-                    </p>
-                    <p><strong>Public Repos:</strong> {user.public_repos}</p>
-                </div>
-            ) : (
-                <button
-                    onClick={handleLogin}
-                    style={{
-                        padding: '0.6rem 1.2rem',
-                        backgroundColor: '#2ea44f',
-                        color: 'white',
-                        border: 'none',
-                        borderRadius: '8px',
-                        fontSize: '1rem',
-                        cursor: 'pointer',
-                    }}
-                >
-                    Sign in with GitHub
-                </button>
-            )}
-        </main>
+                {user ? (
+                    <div>
+                        <img
+                            src={user.avatar_url}
+                            alt="Avatar"
+                            width={100}
+                            height={100}
+                            style={{ borderRadius: '50%', marginBottom: '1rem' }}
+                        />
+                        <p style={{ marginBottom: '0.5rem' }}>
+                            <strong>Name:</strong> {user.name || user.login}
+                        </p>
+                        <p style={{ marginBottom: '0.5rem' }}>
+                            <strong>Username:</strong> {user.login}
+                        </p>
+                        <p style={{ marginBottom: '0.5rem' }}>
+                            <strong>Public Repos:</strong> {user.public_repos}
+                        </p>
+                        <p style={{ marginBottom: '1rem' }}>
+                            <strong>GitHub:</strong>{' '}
+                            <a href={user.html_url} target="_blank" rel="noopener noreferrer" style={{ color: '#58a6ff' }}>
+                                {user.html_url}
+                            </a>
+                        </p>
+                    </div>
+                ) : (
+                    <button
+                        onClick={handleLogin}
+                        style={{
+                            backgroundColor: '#2ea44f',
+                            color: '#fff',
+                            padding: '0.7rem 1.5rem',
+                            fontSize: '1rem',
+                            border: 'none',
+                            borderRadius: '0.5rem',
+                            cursor: 'pointer'
+                        }}
+                    >
+                        Sign in with GitHub
+                    </button>
+                )}
+            </main>
+        </div>
     );
 }
