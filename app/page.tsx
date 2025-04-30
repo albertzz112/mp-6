@@ -31,61 +31,63 @@ export default function Home() {
 
     return (
         <div style={{
+            minHeight: '100vh',
             backgroundColor: '#0d1117',
             display: 'flex',
             justifyContent: 'center',
-            flexDirection: 'column',
             alignItems: 'center',
-            padding: '4rem 1rem',
+            padding: '2rem'
         }}>
             <main style={{
-                background: '#161b22',
-                color: '#f0f6fc',
-                padding: '2rem',
-                borderRadius: '12px',
+                backgroundColor: '#ffffff10',
+                color: '#ffffff',
+                padding: '2.5rem',
+                borderRadius: '1rem',
+                maxWidth: '480px',
                 width: '100%',
-                maxWidth: '420px',
                 textAlign: 'center',
-                border: '1px solid #30363d',
-                boxSizing: 'border-box',
+                boxShadow: '0 0 20px rgba(0, 0, 0, 0.3)',
+                backdropFilter: 'blur(8px)'
             }}>
-                <h1 style={{
-                    fontSize: 'clamp(1.5rem, 5vw, 2rem)',
-                    marginBottom: '1.5rem',
-                    fontWeight: 600,
-                }}>
-                    GitHub OAuth App
+                <h1 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', fontWeight: 'bold' }}>
+                     GitHub OAuth App
                 </h1>
 
                 {user ? (
-                    <>
+                    <div>
                         <img
                             src={user.avatar_url}
                             alt="Avatar"
-                            width={96}
-                            height={96}
+                            width={100}
+                            height={100}
                             style={{ borderRadius: '50%', marginBottom: '1rem' }}
                         />
-                        <p><strong>Name:</strong> {user.name || user.login}</p>
-                        <p><strong>Username:</strong> {user.login}</p>
-                        <p><strong>Public Repos:</strong> {user.public_repos}</p>
-                        <p style={{ wordBreak: 'break-all' }}>
+                        <p style={{ marginBottom: '0.5rem' }}>
+                            <strong>Name:</strong> {user.name || user.login}
+                        </p>
+                        <p style={{ marginBottom: '0.5rem' }}>
+                            <strong>Username:</strong> {user.login}
+                        </p>
+                        <p style={{ marginBottom: '0.5rem' }}>
+                            <strong>Public Repos:</strong> {user.public_repos}
+                        </p>
+                        <p style={{ marginBottom: '1rem' }}>
                             <strong>GitHub:</strong>{' '}
                             <a href={user.html_url} target="_blank" rel="noopener noreferrer" style={{ color: '#58a6ff' }}>
                                 {user.html_url}
                             </a>
                         </p>
-                    </>
+                    </div>
                 ) : (
                     <button
                         onClick={handleLogin}
                         style={{
-                            backgroundColor: '#238636',
+                            backgroundColor: '#2ea44f',
                             color: '#fff',
-                            padding: '0.7rem 1.3rem',
+                            padding: '0.7rem 1.5rem',
                             fontSize: '1rem',
                             border: 'none',
-                            borderRadius: '6px',
+                            borderRadius: '0.5rem',
                             cursor: 'pointer'
                         }}
                     >
