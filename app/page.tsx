@@ -32,9 +32,11 @@ export default function Home() {
     return (
         <div style={{
             backgroundColor: '#0d1117',
-            padding: '3rem 1rem',
             display: 'flex',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: '4rem 1rem',
         }}>
             <main style={{
                 background: '#161b22',
@@ -44,12 +46,13 @@ export default function Home() {
                 width: '100%',
                 maxWidth: '420px',
                 textAlign: 'center',
-                border: '1px solid #30363d'
+                border: '1px solid #30363d',
+                boxSizing: 'border-box',
             }}>
                 <h1 style={{
-                    fontSize: '1.75rem',
-                    marginBottom: '1.25rem',
-                    fontWeight: 600
+                    fontSize: 'clamp(1.5rem, 5vw, 2rem)',
+                    marginBottom: '1.5rem',
+                    fontWeight: 600,
                 }}>
                     GitHub OAuth App
                 </h1>
@@ -79,7 +82,7 @@ export default function Home() {
                         style={{
                             backgroundColor: '#238636',
                             color: '#fff',
-                            padding: '0.6rem 1.2rem',
+                            padding: '0.7rem 1.3rem',
                             fontSize: '1rem',
                             border: 'none',
                             borderRadius: '6px',
